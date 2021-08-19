@@ -7,13 +7,15 @@
         <!-- Username -->
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <input id="username" name="username" type="text" class="validate" placeholder="Username">
+                <input id="username" name="username" minlength="5" maxlength="15"
+                 pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate" placeholder="Username" required>
             </div>
         </div>
         <!-- Password -->
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <input id="password" name="password" type="password" class="validate" placeholder="Password">
+                <input id="password" name="password" type="password" minlength="5"
+                maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder="Password" required>
             </div>
         </div>
         <!-- Register -->
