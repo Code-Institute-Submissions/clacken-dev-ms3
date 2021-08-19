@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h4>Data pulled from database. Loaded on index.html</h4>
     {% for photo in photos %}
         {{ photo.owner }}<br>
         {{ photo.category }}<br>
