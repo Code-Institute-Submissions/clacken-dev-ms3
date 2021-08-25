@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h4>Data pulled from database. Loaded on index.html</h4>
-    {% for patient in patients %}
-        {{ patient.first_name }}<br>
-        {{ patient.last_name }}<br>
-        {{ patient.dob }}<br>
-        {{ patient.ward }}<br>
-        {{ patient.notes }}<br>
-        {{ patient.is_fatal }}<br>
-    {% endfor %}
+    <h4>Hospital Overview</h4>
 
     {% endblock %}

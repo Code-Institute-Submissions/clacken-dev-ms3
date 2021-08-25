@@ -20,9 +20,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/patients")
 def get_info():
     patients = mongo.db.patients.find()
-    return render_template("index.html", patients=patients)
+    return render_template("patients.html", patients=patients)
 
 
 @app.route("/register", methods=["GET", "POST"])
