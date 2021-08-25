@@ -2,11 +2,13 @@
 {% block content %}
 
     <h4>Data pulled from database. Loaded on index.html</h4>
-    {% for photo in photos %}
-        {{ photo.owner }}<br>
-        {{ photo.category }}<br>
-        {{ photo.device }}<br>
-        {{ photo.location }}<br>
+    {% for patient in patients %}
+        {{ patient.first_name }}<br>
+        {{ patient.last_name }}<br>
+        {{ patient.dob }}<br>
+        {{ patient.ward }}<br>
+        {{ patient.notes }}<br>
+        {{ patient.is_fatal }}<br>
     {% endfor %}
 
     {% endblock %}

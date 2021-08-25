@@ -21,8 +21,8 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def get_info():
-    photos = mongo.db.photos.find()
-    return render_template("index.html", photos=photos)
+    patients = mongo.db.patients.find()
+    return render_template("index.html", patients=patients)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -60,7 +60,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
+                        flash("Logged in as:  {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
                             "profile", username=session["user"]))
@@ -84,7 +84,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("overview.html", username=username)
 
     return redirect(url_for("login"))
 
