@@ -3,33 +3,48 @@
 
 <h4 class="text-center">Add Patient</h4>
 
-<form>
-    <!-- Email input -->
-    <div class="container">
-        <div class="row d-flex justify-content-center">
 
-            <div class="col-6">
-                <div class="form-outline mb-4">
-                    <input type="email" id="form1Example1" class="form-control" />
-                    <label class="form-label" for="form1Example1">Email address</label>
+<div class="card">
+    <div class="card-body text-center">
+        <h5 class="card-title">Add Patient</h5>
+        <p class="card-text">
+            Please enter patient information here and click 'Add' when finished.
+        </p>
+
+        <!-- form for taking input and passing to mongo database -->
+
+        <form>
+            <div class="row mb-4 form-outline">
+                <input type="text" id="first_name" name="first_name" class="form-control" />
+                <label class="form-label" for="first_name">First Name</label>
+            </div>
+            <div class="row mb-4 form-outline">
+                <input type="text" id="last_name" name="last_name" class="form-control" />
+                <label class="form-label" for="last_name">Last Name</label>
+            </div>
+            <div class="row mb-4 form-outline">
+                <input type="text" id="dob" name="dob" class="form-control" class="datepicker" />
+                <label class="form-label" for="dob">Date of Birth: </label>
+            </div>
+            <div class="row mb-4 form-outline">
+                <input type="text" id="ward" name="ward" class="form-control" />
+                <label class="form-label" for="ward">Ward: </label>
+            </div>
+            <div class="row mb-4 form-outline">
+                <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
+                <label class="form-label" for="notes">Notes:</label>
+            </div>
+            <div class="row mb-4 form-outline form-check form-switch">
+                <div class="col-6 offset-sm-4">
+                    <label class="form-check-label" for="is_critical">Critical Condition:</label>
+                    <input class="form-check-input" type="checkbox" id="is_critical" name="is_critical" />
                 </div>
             </div>
-
-            <!-- Password input -->
-            <div class='row d-flex justify-content-center'>
-            <div class="col-6">
-                <div class="form-outline mb-4">
-                    <input type="password" id="form1Example2" class="form-control" />
-                    <label class="form-label" for="form1Example2">Password</label>
-                </div>
-            </div>
-        </div>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block">Add</button>
-
-        </div>
+            <button type="button" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- end of form -->
     </div>
-</form>
+</div>
+
 
 {% endblock %}
