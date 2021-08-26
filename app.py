@@ -100,8 +100,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/edit_patients")
+@app.route("/edit_patients", methods=["GET", "POST"])
 def edit_patients():
+    if request.method == "POST":
+        is_critical = "on" if request.form.get("is_critical") else "off"
+        patient = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "dob": request.form.get("dob"),
+            "ward": request.form.get("ward"),
+            "is_critical": is_critical,
+            "notes": request.form.get("notes"),
+            "added_by": session["user"]
+        }
+        mongo.db.patients.insert_one(patient)
+        flash("Patient Successfully Added")
+        return redirect(url_for("get_info"))
     return render_template("edit_patients.html")
 
 
