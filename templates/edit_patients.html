@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4 class="text-center">Add Patient</h4>
+
+<form>
+    <!-- Email input -->
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-6">
+                <div class="form-outline mb-4">
+                    <input type="email" id="form1Example1" class="form-control" />
+                    <label class="form-label" for="form1Example1">Email address</label>
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class='row d-flex justify-content-center'>
+            <div class="col-6">
+                <div class="form-outline mb-4">
+                    <input type="password" id="form1Example2" class="form-control" />
+                    <label class="form-label" for="form1Example2">Password</label>
+                </div>
+            </div>
+        </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+
+        </div>
+    </div>
+</form>
+
+{% endblock %}

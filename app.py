@@ -1,5 +1,4 @@
 import os
-import cloudinary
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -25,7 +24,7 @@ def home():
 
 @app.route("/patients")
 def get_info():
-    patients = mongo.db.patients.find()
+    patients = list(mongo.db.patients.find())
     return render_template("patients.html", patients=patients)
 
 
@@ -99,6 +98,11 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/edit_patients")
+def edit_patients():
+    return render_template("edit_patients.html")
 
 
 if __name__ == "__main__":
