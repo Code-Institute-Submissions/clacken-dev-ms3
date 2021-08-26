@@ -54,7 +54,7 @@
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
                     <div class="list-group list-group-flush mx-3 mt-4">
-                        <a href="" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                        <a href="{{ url_for('home') }}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                             <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Hospital Overview</span>
                         </a>
                         <a href="{{ url_for('get_info') }}" class="list-group-item list-group-item-action py-2 ripple"><i
@@ -78,8 +78,7 @@
 
                     <!-- Brand -->
                     <a class="navbar-brand" href="#">
-                        <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt=""
-                            loading="lazy" />
+                        <h4>MediMetrics</h4>
                     </a>
 
 
