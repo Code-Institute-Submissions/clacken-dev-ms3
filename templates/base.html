@@ -91,6 +91,7 @@
                     <!-- Right links -->
                     <ul class="navbar-nav ms-auto d-flex flex-row">
                         <!-- Icon -->
+                        {% if session.user %} 
                         <li class="nav-item">
                             <a class="nav-link me-3 me-lg-0" href="{{ url_for('logout') }}">
                                 <i class="fas fa-fill-drip"></i>
@@ -98,6 +99,7 @@
                             </a>
                         </li>
                         <!-- Icon -->
+                        {% else %}
                         <li class="nav-item me-3 me-lg-0">
                             <a class="nav-link" href="{{ url_for('login') }}">
                                 <i class="fab fa-github"></i>
@@ -106,12 +108,13 @@
                         </li>
                         <!-- Icon -->
                         <li class="nav-item me-3 me-lg-0">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ url_for('register')}}">
                                 <i class="fab fa-github"></i>
                                 Register
                             </a>
                         </li>
                     </ul>
+                    {% endif %}
 
 
 
