@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 def home():
     return render_template("overview.html")
 
+
 @app.route("/patients")
 def get_info():
     patients = list(mongo.db.patients.find())
@@ -121,6 +122,21 @@ def add_patient():
 
 @app.route("/edit_patient/<patient_id>", methods=["GET", "POST"])
 def edit_patient(patient_id):
+    if request.method == "POST":
+        is_critical = "on" if request.form.get("is_critical") else "off"
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "dob": request.form.get("dob"),
+            "ward": request.form.get("ward"),
+            "is_critical": is_critical,
+            "notes": request.form.get("notes"),
+            "added_by": session["user"]
+        }
+        mongo.db.patients.update({"_id": ObjectId(patient_id)}, submit)
+        flash("Patient Successfully Updated")
+        return redirect(url_for("get_info"))
+
     patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     #patients = mongo.db.patients.find().sort("first_name", 1)
     return render_template("edit_patient.html", patient=patient)
