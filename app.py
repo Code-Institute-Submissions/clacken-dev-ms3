@@ -20,7 +20,10 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    return render_template("overview.html")
+    if session["user"]:
+        return render_template("overview.html")
+    else:
+        return render_template("landing.html")
 
 
 @app.route("/patients")
@@ -62,12 +65,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Logged in as:  {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+              existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Logged in as:  {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -78,7 +81,28 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
-    return render_template("login.html")
+    return render_template("landing.html")
+
+
+@app.route("/overview")
+def overview():
+    patients = list(mongo.db.patients.find())
+    total_patients = len(patients)
+    ward_a = list(mongo.db.patients.find({"ward": "a"}))
+    total_ward_a = len(ward_a)
+    ward_b = list(mongo.db.patients.find({"ward": "b"}))
+    total_ward_b = len(ward_b)
+    ward_c = list(mongo.db.patients.find({"ward": "c"}))
+    total_ward_c = len(ward_c)
+    ward_d = list(mongo.db.patients.find({"ward": "d"}))
+    total_ward_d = len(ward_d)
+    critical_patients = list(mongo.db.patients.find({"is_critical": "on"}))
+    total_critical = len(critical_patients)
+    return render_template(
+        "overview.html", total_patients=total_patients,
+          patients=patients, total_ward_a=total_ward_a,
+          total_ward_b=total_ward_b, total_ward_c=total_ward_c,
+          total_ward_d=total_ward_d, total_critical=total_critical )
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
@@ -88,7 +112,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("overview.html", username=username)
+        return redirect(url_for("overview", username=username))
 
     return redirect(url_for("login"))
 
@@ -96,9 +120,9 @@ def profile(username):
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return render_template("landing.html")
+    #return redirect(url_for("login"))
 
 
 @app.route("/add_patient", methods=["GET", "POST"])
@@ -106,10 +130,10 @@ def add_patient():
     if request.method == "POST":
         is_critical = "on" if request.form.get("is_critical") else "off"
         patient = {
-            "first_name": request.form.get("first_name"),
-            "last_name": request.form.get("last_name"),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
             "dob": request.form.get("dob"),
-            "ward": request.form.get("ward"),
+            "ward": request.form.get("ward").lower(),
             "is_critical": is_critical,
             "notes": request.form.get("notes"),
             "added_by": session["user"]
@@ -125,10 +149,10 @@ def edit_patient(patient_id):
     if request.method == "POST":
         is_critical = "on" if request.form.get("is_critical") else "off"
         submit = {
-            "first_name": request.form.get("first_name"),
-            "last_name": request.form.get("last_name"),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
             "dob": request.form.get("dob"),
-            "ward": request.form.get("ward"),
+            "ward": request.form.get("ward").lower(),
             "is_critical": is_critical,
             "notes": request.form.get("notes"),
             "added_by": session["user"]
@@ -140,6 +164,13 @@ def edit_patient(patient_id):
     patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
     #patients = mongo.db.patients.find().sort("first_name", 1)
     return render_template("edit_patient.html", patient=patient)
+
+
+@app.route("/delete_patient/<patient_id>")
+def delete_patient(patient_id):
+    mongo.db.patients.remove({"_id": ObjectId(patient_id)})
+    flash("Patient Successfully Deleted")
+    return redirect(url_for("get_info"))
 
 
 if __name__ == "__main__":

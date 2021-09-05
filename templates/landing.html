@@ -28,31 +28,26 @@
                     <h4>MediMetrics is the industry leader in healthcare analytical systems</h4>
                 </div>
 
-
+                <!-- form for login -->
                 <div class="row justify-content-center">
                     <div class="col-xl-4 col-md-6">
-                        <!-- REGISTRATION FORM -->
+
                         <form class="bg-white  rounded-5 shadow-1-strong p-5" method="POST"
-                            action="{{ url_for('register') }}">
-                            <h3 class="text-center">Register</h3>
-                            <!-- Username -->
-                            <div class="row">
-                                <div class="form-outline mb-4 text-center">
-                                    <input id="username" name="username" minlength="5" maxlength="15"
-                                        pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate"
-                                        placeholder="Username" required>
-                                </div>
+                            action="{{ url_for('login') }}">
+                            <h3 class="text-center">Log In</h3>
+                            <!-- username input -->
+                            <div class="form-outline mb-4 text-center">
+                                <input id="username" name="username" minlength="5" maxlength="15"
+                                    pattern="^[a-zA-Z0-9]{5,15}$" type="text" class="validate" placeholder="Username"
+                                    required>
                             </div>
-                            <!-- Password -->
-                            <div class="row">
-                                <div class="form-outline mb-4 text-center">
-                                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder="Password" required>
-                                </div>
+                            <!-- Password input -->
+                            <div class="form-outline mb-4 text-center">
+                                <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                                    pattern="^[a-zA-Z0-9]{5,15}$" class="validate" placeholder="Password" required>
                             </div>
-                            <!-- Register -->
                             <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary-outline btn-block mb-4">Register
+                            <button type="submit" class="btn btn-primary-outline btn-block mb-4">Log in
                                 <i class="fas fa-sign-in-alt"></i>
                             </button>
 
@@ -60,25 +55,21 @@
                             <div class="row">
                                 <div class="col d-flex justify-content-center">
                                     <div class="form-check text-center">
-                                        <p>Already registered?</p>
+                                        <p>Not registered?</p>
                                     </div>
                                 </div>
                                 <div class="col text-center">
                                     <!-- Redirect for registering new account -->
-                                    <a href="{{ url_for('login') }}">Log In</a>
+                                    <a href="{{ url_for('register') }}">New Account</a>
                                 </div>
                             </div>
+                        </form>
+                        <!-- End form -->
                     </div>
-                    </form>
                 </div>
             </div>
-            <!-- END FORM -->
-
-
-
         </div>
     </div>
-
     <!-- Background image -->
 </header>
 

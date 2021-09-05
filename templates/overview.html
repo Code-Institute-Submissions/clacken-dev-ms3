@@ -1,14 +1,98 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row">
-        <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                
-                <h2>Hospital Overview on Overview Page</h2>
-                <h3>Hospital has 30 patients and is operating at 10% capacity</h3>
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+        <div class="card-panel">
+            
+            
+
+            <h2 class="text-center mb-4">Hospital Overview</h2>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="bg-dark col-12 mb-2">
+                        <h4 class="hero-text text-center">Hospital Capacity: 70 Patients</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="bg-dark col-sm-12 col-md-6 col-lg-3">
+                        <h4 class="hero-text text-center mt-4">Ward A</h4><br>
+                        <h4 class="hero-text text-center mb-4">Maximum: 20</h4>
+                        <span><h4 class="hero-text text-center mb-4">Current:</h4></span>
+                         <span id="current_ward_a" class="hero-text text-center mb-4">{{ total_ward_a }}</span>
+                    </span>
+                    <span class="bg-dark col-sm-12 col-md-6 col-lg-3">
+                        <h4 class="hero-text text-center mt-4">Ward B</h4><br>
+                        <h4 class="hero-text text-center mb-4">15</h4>
+                    </span>
+                    <span class="bg-dark col-sm-12 col-md-6 col-lg-3">
+                        <h4 class="hero-text text-center mt-4">Ward C</h4><br>
+                        <h4 class="hero-text text-center mb-4">15</h4>
+                    </span>
+                    <span class="bg-dark col-sm-12 col-md-6 col-lg-3">
+                        <h4 class="hero-text text-center mt-4">Ward D</h4><br>
+                        <h4 class="hero-text text-center mb-4">20</h4>
+                    </span>
+                </div>
             </div>
+           
+            <h3>Hospital has {{ total_patients }} patients and is operating at x capacity</h3>
+            <h4>There are currently {{ total_ward_a }} patients in ward A.</h4>
+            <h4>There are currently {{ total_ward_b }} patients in ward B.</h4>
+            <h4>There are currently {{ total_ward_c }} patients in ward C.</h4>
+            <h4>There are currently {{ total_ward_d }} patients in ward D.</h4>
+            <h4>There are currently {{ total_critical }} patients in a critical condition</h4>
+            
         </div>
     </div>
+</div>
+
+<div class="container-fluid">
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+</div>
+
+<!-- Information cards section -->
+<section>
+    <div class="row">
+        <div class="col-sm-12 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+                            <i class="fas fa-bed fa-3x text-warning"></i>
+                        </div>
+                        <div class="text-end">
+                            <h3>278</h3>
+                            <p class="mb-0">Ward A</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-12 col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between px-md-1">
+                        <div class="align-self-center">
+                            <h3>156</h3>
+                            <p class="mb-0">Ward B</p>
+                            <div class="text-end">
+                                <i class="fas fa-bed fa-3x text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
+{% block scripts %}
 
 {% endblock %}

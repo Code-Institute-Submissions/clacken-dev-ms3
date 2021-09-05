@@ -37,3 +37,30 @@ body {
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
+
+  /* landing page */
+  #intro {
+    background-image: url(../images/hospital2.jpg);
+    background-color:grey;
+    height: 100vh;
+  }
+
+  /* Height for devices larger than 576px */
+  @media (min-width: 992px) {
+    #intro {
+      margin-top: -58.59px;
+      height:100vh;
+    }
+  }
+
+  #mask{
+    background-color: rgba(0, 100, 150, 0.5);
+  }
+
+  .hero-text{
+    color: white;
+  }
+
+  #footer{
+    background-color: rgba(0, 0, 0, 0.2);
+  }
