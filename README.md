@@ -28,5 +28,25 @@ This is the main website for Medimetrics, an application designed to provide ana
 
 # User Experience (UX)
 ## Site Goals
-The goal of the site is to provide a consise and intuitive hospital administration application for the healthcare sector. 
+The goal of the site is to provide a consise and intuitive hospital administration application for the healthcare sector. This should be easy to use and easily understandeable by anybody, regardless of technical experience and background. The overall aim of the site is therefore to provide a quality product which will be tried and tested in the industry and thereby gain traction and exposure to further future clients.
 
+* ## User Stories
+    * First Time Visitor Goals
+        * As a First Time Visitor I want to understand how to sign up and use the service
+        * As a First Time Visitor I want to be able to find register easily and enter my details. 
+        * As a First Time User I want to find the application to be practical as well as visually appealing with information clearly presented
+    
+    
+    * Returning Visitor Goals
+
+        * As a Returning Visitor I want to easily be able to login using my existing account
+        * As a Returning Visitor I want to view current information about the hospital at which I work
+        * As a Returning Visitor I want to view patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to edit patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to delete patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to add patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to log out of my account
+
+
+    * Frequent User Goals
+        * As a Frequent User I want to view operational statistics of the hospital at which I work, as well as view and update patient information
