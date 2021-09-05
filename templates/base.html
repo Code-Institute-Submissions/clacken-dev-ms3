@@ -36,7 +36,7 @@
                                 class="fas fa-chart-bar fa-fw me-3"></i><span>Patients</span></a>
                         <a href="{{ url_for('add_patient') }}"
                             class="list-group-item list-group-item-action py-2 ripple"><i
-                                class="fas fa-globe fa-fw me-3"></i><span>Add Patients</span></a>
+                                class="fas fa-plus fa-fw me-3"></i><span>Add Patients</span></a>
                         {% else %}
 
                         <a href="{{ url_for('login') }}" class="list-group-item list-group-item-action py-2 ripple"><i
@@ -66,7 +66,7 @@
                         {% if session.user %}
                         <li class="nav-item">
                             <a class="nav-link me-3 me-lg-0" href="{{ url_for('logout') }}">
-                                <i class="fas fa-fill-drip"></i>
+                                <i class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
                         </li>
@@ -74,14 +74,14 @@
                         {% else %}
                         <li class="nav-item me-3 me-lg-0">
                             <a class="nav-link" href="{{ url_for('login') }}">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-sign-in-alt"></i>
                                 Log In
                             </a>
                         </li>
                         <!-- Icon -->
                         <li class="nav-item me-3 me-lg-0">
                             <a class="nav-link" href="{{ url_for('register')}}">
-                                <i class="fab fa-github"></i>
+                                <i class="fab fa-pencil-alt"></i>
                                 Register
                             </a>
                         </li>
