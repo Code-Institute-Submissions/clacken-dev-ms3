@@ -23,8 +23,6 @@ This is the main website for Medimetrics, an application designed to provide ana
    - Testing Site Features and Functionality
    - Known Bugs
 ### 6. Deployment
-   - GitHub Pages
-     - Forking or Cloning
    - Heroku
 ### 7. Credits
    - Code
@@ -75,7 +73,11 @@ The goal of the site is to provide a consise and intuitive hospital administrati
 The wireframes represent a design which is fairly consistent with the finished product. Small changes were made along the way and the name was updated. The presentation of information is presented in the same manner and with the same pages in existence as seen on the mobile and desktop site. 
 The hospital overview page went without a visual representation of the hospital building due to scaling issues on mobile as well as text overlay complications. This design was then changed to individual cards for the separate information areas and these are also clearly presented and easy to read as planned for in the wireframes.
 
-* Wireframe of Desktop and Mobile - [view](https://github.com/clacken-dev/ms3/blob/main/documentation/ms3-wireframe.png) (wireframe is horizontal and needs to be scrolled to view in its entirety)
+* Wireframe of Desktop and Mobile - [view on github](https://github.com/clacken-dev/ms3/blob/main/documentation/ms3-wireframe.png) (wireframe is horizontal and needs to be scrolled to view in its entirety)
+
+
+![Wireframe](https://github.com/clacken-dev/ms3/blob/main/documentation/ms3-wireframe.png?raw=true)
+
  
 # Features 
  * Responsive on all device sizes
@@ -85,7 +87,13 @@ The hospital overview page went without a visual representation of the hospital 
  * Login authentication with secure password hashing and password matching
  * Account registration functionality which checks if username already exists in database
 
- # Technologies Used
+# Database Design
+![Login](https://github.com/clacken-dev/ms3/blob/main/documentation/database-schema.jpg?raw=true)
+
+### MongoDb 
+* The database is a non-relational database designed in MongoDB which is relevant for this project. There are two collections, one which handles Users and their passwords and the other which contains all the patient information. The 'users' collection is populated with the login function which captures the data entered in the registration form. The hashed password is checked against the entered password to validate credentials. Data is stored in the 'patients' collection after being captured from the 'add patient' form. This data is then retrieved as necessary and manipulated in Javascript to provide the analytics for the user. 
+
+# Technologies Used
 
  ## Languages Used
   * HTML5
@@ -190,3 +198,66 @@ This section talks about the testing which was undertaken to ensure that the tar
     * Frequent User Goals
 
         1. As a Frequent User I want to view operational statistics of the hospital at which I work, as well as view and update patient information.
+            * A frequent user will be familiar with the site and the operation of it. They will expect to be greeted by the dashboard upon logging in and will have no problem navigating to the different pages for editing and viewing patients. They will be in the habitude of adding, editing and deleting patients and will see everything as they expect to find it due to the logical layout of the site.
+
+### Further Testing
+
+* Testing was carried out across browsers and devices to ensure maximum responsive design and functionality. Friends are family were also sent the link to provide feedback on their devices and talk about their user experience. This and personal experience was there used to improve on the design and the features of the site. 
+* Browsers tested on include Chrome, Firefox and Safari on mobile and desktop.
+* Devices used included but were not limited to Mac, iPhone 11 & 8, Samsung Galaxy S10
+
+#### Feature Testing
+* The site was tested in full across devices and all links, features, buttons and elements were used and interacted with. New features were tested as they were deployed and any bugs and errors were rectified as they appeared. Errors in logic or in app programming resulted in either Heroku or Jinja providing feedback to say the site was no longer operational. This errors were also fixed as they appeared and the site was rigourously tested to ensure it would remain live and that no fatal errors found their way into final production. 
+
+### Known Bugs
+* Sometimes at random it appears that the login button doesn't register that it has been clicked however upon pressing it a second time it works. It occurs very rarely and is hard to inspect specifically but it works consistently close to all the time. 
+
+
+# Deployment 
+
+* The project repository is hosted on GitHub and this is linked to Heroku where it automatically updates with every push to Github. The steps for deploying to Heroku are listed below.
+
+### Forking the GitHub Repository
+
+* If you want to make changes to the repository without altering it, you can make a copy of it by 'Forking' it. This ensures your original repository remains intact.
+
+* Navigate to the relevant GitHub repository:
+At the top right corner of the page, select the Fork option.
+The repository has now been 'Forked' and you have a copy to work on separately
+
+### Cloning the GitHub Repository
+
+* Cloning the repository will allow a local version of the repository to be worked on by downloading a copy of it. Cloning is good as a backup copy or for working remotely.
+
+* Navigate to the relevant GitHub repository and select the arrow on the Code button.
+Copy the link that is shown in the drop-down and select a location in a CLI interface in which the link is to be pasted.
+In the terminal the 'git clone' with the link will download a copy of the repository.
+
+### Heroku
+
+* Before deploying to Heroku you will need to prove a requirements.txt file and a Procfile.
+This lets Heroku know which packages it needs to install and also how to run the web app. 
+
+* The steps for creating an appliation and deploying to Heroku are as follows:
+1. Login or create an account if not already in possesion of same
+2. Select New > Create New App  on the home page
+3. Select a server and a unique name for the application
+4. After creating the app it will need to be linked to a GitHub repository. This is done in the Deploy section of the App
+5. Environment variables will need to be provided as they are not committed to Github. This is done in Config Vars section of the settings page. 
+6. When all required parameters are added link deploy the app and select automatic deploys from Github. This will build the app and publish and provide a link to the live app. 
+
+## Credits
+   ### Code
+
+   * The project is based on the Task Manager project by Code Institute. Functions in app.py are borrowed from this and modified if necessary to suit the project requirements. Some Jinja templating is very similar also but most is adapted as required. Database operations are also based on the Task Manager project as well as the login and authentication features.
+
+   * The page template is from Material Design for Bootstrap and has been adapted and modified as necessary for the project.
+   ### Other
+   * Any images used were downloaded from Unsplash.com
+   * All other images and media for documents folder etc., were created by me.
+   
+   ## Acknowledgements
+   * Friends and family who tested the site features and functionality in order to provide feedback
+   * The Code Institute Slack Community
+   * My mentor Aaron for advice, feedback and professional assistance
+

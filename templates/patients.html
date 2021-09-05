@@ -20,7 +20,11 @@
                         DOB: {{ patient.dob }}<br>
                         WARD: {{ patient.ward }}<br>
                         NOTES: {{ patient.notes }}<br>
-                        Critical Condition: {{ patient.is_critical }}<br>
+                        {% if patient.is_critical == "on" %}
+                        <i class="fas fa-exclamation-triangle text-danger fa-3x"></i>
+                        {% else %}
+                        Critical Condition: No<br>
+                        {% endif %}
                     </strong></p>
                 <div>
                     <a href="{{ url_for('edit_patient', patient_id=patient._id) }}"
