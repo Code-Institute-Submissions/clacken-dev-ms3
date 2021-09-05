@@ -26,6 +26,15 @@ def home():
         return render_template("landing.html")
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('500.html'), 500
+
 @app.route("/patients")
 def get_info():
     patients = list(mongo.db.patients.find())
@@ -100,9 +109,9 @@ def overview():
     total_critical = len(critical_patients)
     return render_template(
         "overview.html", total_patients=total_patients,
-          patients=patients, total_ward_a=total_ward_a,
-          total_ward_b=total_ward_b, total_ward_c=total_ward_c,
-          total_ward_d=total_ward_d, total_critical=total_critical )
+        patients=patients, total_ward_a=total_ward_a,
+        total_ward_b=total_ward_b, total_ward_c=total_ward_c,
+        total_ward_d=total_ward_d, total_critical=total_critical)
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
