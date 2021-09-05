@@ -69,3 +69,10 @@ body {
   .current_text{
     font:200;
   }
+
+  .register-info{
+    font-size:x-small;
+    color: grey;
+    background-color: black;
+    color:blue;
+  }

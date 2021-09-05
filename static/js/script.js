@@ -24,4 +24,4 @@ document.getElementById('critical-condition').innerHTML = total_critical;
 //Percentage of total patients
 let total_patients = document.getElementById('total-patients').innerHTML;
 let total_percent = (total_patients/70);
-document.getElementById('percentage-of-total').innerHTML = Math.trunc(total_patients) + "% Full";
+document.getElementById('percentage-of-total').innerHTML = Math.trunc((total_percent*100)) + "% Full";

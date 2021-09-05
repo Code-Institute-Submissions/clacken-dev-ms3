@@ -133,22 +133,60 @@ This section talks about the testing which was undertaken to ensure that the tar
 
 
         1. As a First Time Visitor I want to understand how to sign up and use the service
-            *
-        * As a First Time Visitor I want to be able to find register easily and enter my details. 
-        * As a First Time User I want to find the application to be practical as well as visually appealing with information clearly presented
+            * A first time user visiting the site will have no problem seeing the two options which are available to them. They will most likely be familiar with login systems and expect to find a registration option if they do not have an account already. They will see the register account option and can click it and be taken to the registration page with no problems.
+
+
+            ![Login](https://github.com/clacken-dev/ms3/blob/main/documentation/login.png?raw=true)
+            The 'not registered' and 'new account' options are clearly visible and their function is clear
+        2. As a First Time Visitor I want to be able to find register easily and enter my details. 
+
+
+             * After clicking on the register link the user will be greeted by a straightforward registration box which has options labelled and whose purpose is clear. 
+
+            ![Login](https://github.com/clacken-dev/ms3/blob/main/documentation/register.png?raw=true)
+
+
+             Information is clearly laid out for registration and the option is also provided to take them back to the login page if they already have an account. If the username already exists they will be informed of this and will have to choose a new one. 
+
+        3. As a First Time User I want to find the application to be practical as well as visually appealing with information clearly presented
+            * A first time user will be taken to the Overview page after logging and will find everything easy to understand from the first time they use the system.
+
+            ![Login](https://github.com/clacken-dev/ms3/blob/main/documentation/overview-page.png?raw=true) 
+
+
+            The information will be available from the very start after logging in and this provides the user with a dashboard from where they can gather analytical and statistical information about the hospital. The figures are generated as the database is updated and so the information will always be correct for them. 
+
     
 
 
    * Returning Visitor Goals
 
-        * As a Returning Visitor I want to easily be able to login using my existing account
-        * As a Returning Visitor I want to view current information about the hospital at which I work
-        * As a Returning Visitor I want to view patients currently registered at the hospital at which I'm working
-        * As a Returning Visitor I want to edit patients currently registered at the hospital at which I'm working
-        * As a Returning Visitor I want to delete patients currently registered at the hospital at which I'm working
-        * As a Returning Visitor I want to add patients currently registered at the hospital at which I'm working
-        * As a Returning Visitor I want to log out of my account
+        1. As a Returning Visitor I want to easily be able to login using my existing account:
+            * Users will be able to log in using their username and password by entering them on the login page. They will be informed if their username or password is incorrect but if correct it will log them in and redirect them to the overview page. 
+        2. As a Returning Visitor I want to view current information about the hospital at which I work:
+            * As soon as the user logs in they will be redirected to the overview page. Here they can view numbers and statistics about the hospital and can scroll down to see the information in its entirety.
+        3. As a Returning Visitor I want to view patients currently registered at the hospital at which I'm working:
+            * The sidebar is clearly labelled and easy to read and so users will simply click on patients to view existing patients.
+
+
+            ![Sidebar](https://github.com/clacken-dev/ms3/blob/main/documentation/nav-bar.png?raw=true)
+
+
+        4. As a Returning Visitor I want to edit patients currently registered at the hospital at which I'm working:
+            * Each patient that is displayed has a clearly labelled button below their information for editing that patient. Users click on Edit and are redirected to the edit page where all the current information about the patient is displayed and where they can enter new information and then submit the form. This will update the patient and they will be brought back to the 'Patients' page where they can see all their changes. 
+
+            ![Sidebar](https://github.com/clacken-dev/ms3/blob/main/documentation/edit-delete.png?raw=true)
+
+
+        5. As a Returning Visitor I want to delete patients currently registered at the hospital at which I'm working:
+            * Users wishing to delete a patient will click on the delete button which they will already know exists from having viewed the page and possible using the edit button already. Clicking the delete button will give the users a prompt to make sure they want to delete the patient. They can either cancel the action or proceed and delete the patient. After deleting the patient they will be brought back to the refreshed patient page where they will see their change has taken effect. 
+        6. As a Returning Visitor I want to add patients currently registered at the hospital at which I'm working:
+            * Users wishing to add a patient will also be familiar with the option from the sidebar. The icon also makes the purpose of the button clear and if they follow the link they will be brought to the 'add patient' page where they can enter all the necessary information into a form. After submitting the form they will be brought back to the 'patients' page and they will see that their patient has been added with all information displaying. 
+        7. As a Returning Visitor I want to log out of my account:
+            * Users can log out of their account using the logout button located at the top right of the screen. The location is prominent and is commonly found in this area so UX is adherred to here and the option is in no way difficult to find or hidden on another page. 
+   
 
 
     * Frequent User Goals
-        * As a Frequent User I want to view operational statistics of the hospital at which I work, as well as view and update patient information
+
+        1. As a Frequent User I want to view operational statistics of the hospital at which I work, as well as view and update patient information.
