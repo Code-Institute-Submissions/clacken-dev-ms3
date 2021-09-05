@@ -29,8 +29,9 @@ def page_not_found(e):
 
 
 @app.errorhandler(500)
-def page_not_found(e):
+def server_error(e):
     return render_template('500.html'), 500
+
 
 @app.route("/patients")
 def get_info():
@@ -128,7 +129,6 @@ def logout():
     # remove user from session cookie
     session.pop("user")
     return render_template("landing.html")
-    #return redirect(url_for("login"))
 
 
 @app.route("/add_patient", methods=["GET", "POST"])
@@ -168,7 +168,6 @@ def edit_patient(patient_id):
         return redirect(url_for("get_info"))
 
     patient = mongo.db.patients.find_one({"_id": ObjectId(patient_id)})
-    #patients = mongo.db.patients.find().sort("first_name", 1)
     return render_template("edit_patient.html", patient=patient)
 
 
