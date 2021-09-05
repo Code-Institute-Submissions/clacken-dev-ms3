@@ -1,6 +1,10 @@
+# MediMetrics
+
 [View the live project here](http://clacken-ms3.herokuapp.com)
 
 [View the GitHub repository here](https://github.com/clacken-dev/ms3)
+
+![Site Mockup](https://github.com/clacken-dev/ms3/blob/main/documentation/site-mockup.jpg?raw=true)
 
 This is the main website for Medimetrics, an application designed to provide analytics and statistic for the healthcare industry. The targeted users are doctors, nurses and hospital secretaries who will use the site to review patient details, add patients, edit existing patients, delete patients from the system and also view current statistics about the hospital departments and figures. 
 
@@ -116,12 +120,35 @@ The hospital overview page went without a visual representation of the hospital 
 
 The W3C Markup Validator and W3C CSS Validator services were used to validate the webpage and ensure there were no errors present. Linting was done on Javascript and Python code to ensure compliance with PEP8 regulations and best practice.
 
-  * W3C Markup Validator - [Results](https://github.com/clacken-dev/ms2/blob/master/documentation/html-valid-ms2.png)
+  * W3C Markup Validator - [Results](https://github.com/clacken-dev/ms3/blob/main/documentation/html-validation.png)
   * W3C CSS Validator - [Results](https://github.com/clacken-dev/ms3/blob/main/documentation/css-validator.png). There are no errors for any of my code as all errors present come from Bootstrap and MDB frameworks or libraries
-  * [BeautifyTools](https://beautifytools.com/javascript-validator.php) was used to check over Javascript and look for issues and errors - Jshint service was unavailable
-  * [BeautifyTools](https://beautifytools.com/javascript-validator.php) was used to check over Javascript and look for issues and errors - Jshint service was unavailable
+  * [JSLint](https://github.com/clacken-dev/ms3/blob/main/documentation/js-lint.png) was used to check over Javascript and look for issues and errors - no errors present
+  * [PEP8 Linter](https://github.com/clacken-dev/ms3/blob/main/documentation/pep8-linter.png) was used to check Python code for any PEP8 compliance issues. All clear was given
 
 ## Testing User Stories from User Experience (UX) Section
-Here I go through all the user stories and how every wish of the user was tested to see if it worked as they wanted, without errors
-Beef this up a lot and talk extensively about the testing which was carried out. Talk about every issue and how it was resolved to give the 
-ultimate user experience. 
+This section talks about the testing which was undertaken to ensure that the target users of this site could achieve their aims without problems. The testing went through UX fundamentals and interactivity of the site as well as taking into account design features and subtle elements of the site which could be improved to provide the best overall user experience. 
+
+* ## User Stories
+    * First Time Visitor Goals
+
+
+        1. As a First Time Visitor I want to understand how to sign up and use the service
+            *
+        * As a First Time Visitor I want to be able to find register easily and enter my details. 
+        * As a First Time User I want to find the application to be practical as well as visually appealing with information clearly presented
+    
+
+
+   * Returning Visitor Goals
+
+        * As a Returning Visitor I want to easily be able to login using my existing account
+        * As a Returning Visitor I want to view current information about the hospital at which I work
+        * As a Returning Visitor I want to view patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to edit patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to delete patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to add patients currently registered at the hospital at which I'm working
+        * As a Returning Visitor I want to log out of my account
+
+
+    * Frequent User Goals
+        * As a Frequent User I want to view operational statistics of the hospital at which I work, as well as view and update patient information
