@@ -20,10 +20,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    if session["user"]:
-        return render_template("overview.html")
-    else:
-        return render_template("landing.html")
+    return render_template("landing.html")
 
 
 @app.errorhandler(404)
